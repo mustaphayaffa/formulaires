@@ -1,0 +1,65 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+
+    <fieldset>
+    <label for="firstname-order">Firstname</label>
+    <input #Firstname="ngModel" type="text" id="firstname-order" name="firstname-order" [(ngModel)]="user.firstname"  maxlength="15" required minlength="3">
+    </fieldset>
+
+    <div *ngIf="Firstname.errors && myForm.submitted">
+        <span *ngIf="Firstname.errors['required']">le prénom est requis</span>
+        <span *ngIf="Firstname.errors['minlength']">au moins 3 caractere</span>
+        <span *ngIf="Firstname.errors['maxlength']">au max 15 caractere</span>
+    </div>
+    
+    <fieldset>
+    <label for="name-order">Name</label>
+    <input #Name="ngModel" type="text" id="name-order" name="name-order" [(ngModel)]="user.name" required maxlength="15" required minlength="3">
+    </fieldset>
+
+    <div *ngIf="Name.errors && myForm.submitted">
+        <span *ngIf="Name.errors['required']">le nom est requis</span>
+        <span *ngIf="Name.errors['minlength']">au moins 3 caractere</span>
+        <span *ngIf="Name.errors['maxlength']">au max 15 caractere</span>
+    </div>
+  
+    <fieldset>
+    <label for="email">Email</label>
+    <input #Email="ngModel" type="email" id="email-order" name="email-order" [(ngModel)]="user.email" required email>
+    </fieldset>
+
+    <div *ngIf="Email.errors && myForm.submitted">
+        <span *ngIf="Email.errors['required']">l'email est requis</span> 
+        <span *ngIf="Email.errors['email']">au moins 3 caractere</span>
+        
+    </div>
+
+    <fieldset>
+    <label for="password-order">Password</label>    
+    <input #Password="ngModel" type="text" id="password-order" name="password-order" [(ngModel)]="user.password" required maxlength="15"  minlength="3">
+    </fieldset>
+
+    <div *ngIf="Password.errors && myForm.submitted">
+        <span *ngIf="Password.errors['required']">le mot de passe est requis</span> 
+        <span *ngIf="Password.errors['minlength']">au moins 3 caractere</span> 
+        <span *ngIf="Password.errors['maxlength']">au max 5 caractere</span>
+    </div>
+
+    <div>
+        Form submitted ? {{myForm.submitted}} 
+    </div>
+
+  
+    <button type="submit">Sauvegarder</button>
+</form>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
